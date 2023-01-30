@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ table, th, td {
+  border:1px solid black;
+  text-align:center;
+}
+table{
+  width:100%;
+}
+</style> 
+</head>
+<body>
+ <table id="table">
+   <tr>
+     <th>ID</th>
+     <th>NAME</th>
+     <th>AGE</th>
+     <th>MOBILE NO</th>
+     <th>DOB</th>
+     <th>RATING</th>
+     <th>UPDATE</th>
+   </tr>
+ </table>
+<script>
+var point,td5;
+class Trainee{
+
+    constructor(id,name,age,mobno,dob,rating){
+
+        this.id=id;
+        this.name=name;
+
+        this.age=age;
+
+        this.mobno=mobno;
+
+        this.dob=dob;
+
+        this.rating=rating;
+
+    }
+
+    update(idValue){
+
+        // console.log(this.name);
+
+        
+//         this.rating=parseInt(prompt("upRate"));
+         
+ 
+    }
+
+ }
+
+     var details=[];
+     
+var listUser=parseInt(prompt("how many user you to enter"));
+      
+for(let i=0;i<=listUser;i++)
+        { 
+           
+var traineeNew=new Trainee(parseInt(prompt("id")),prompt("name"),parseInt(prompt("age")),parseInt(prompt("mobno")),parseInt(prompt("DOB")),parseInt(prompt("rating")));
+
+               details.push(traineeNew)
+;
+           //    traineeNew.update()
+     
+}
+
+    console.log(details);
+       var no=1;
+   details.forEach((obj)=>{
+     let tabTag=document.getElementById("table");
+     let trow=document.createElement("tr");     
+     let td0=document.createElement("td");
+     let td1=document.createElement("td");
+     let td2=document.createElement("td");
+     let td3=document.createElement("td");
+     let td4=document.createElement("td");
+       td5=document.createElement("td");
+     let btn=document.createElement("button");
+       td5.setAttribute("id",no+"s"+"update");
+       btn.setAttribute("id",no+"update");
+         
+        btn.innerText="UPDATE";    
+        td0.innerText=obj.id;
+        td1.innerText=obj.name;
+        td2.innerText=obj.age;
+        td3.innerText=obj.mobno;
+        td4.innerText=obj.dob;
+         point=obj.rating;
+        td5.innerText=point;   
+        trow.append(td0,td1,td2,td3,td4,td5,btn);
+        tabTag.appendChild(trow);
+         let updateFun=document.getElementById(no+"update");
+             updateFun.addEventListener("click",updatekannu);          
+             newRate=document.getElementById(no+"s"+"update");
+         no++;
+   });
+var v;
+function updatekannu(){
+                   console.log("hi")               
+                  let idValue=parseInt(this.id);
+                 // traineeNew.update(idValue);
+            console.log(idValue);
+            v= details[idValue-1];
+            v.rating=parseInt(prompt("new rating"));
+		document.getElementById(idValue+"s"+"update").innerText=v.rating;
+              console.log(newRate.id);
+                        
+             console.log(details);
+                            
+}     
+ </script>
+</body>
+</html>
